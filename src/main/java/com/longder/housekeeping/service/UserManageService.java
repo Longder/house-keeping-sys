@@ -29,4 +29,11 @@ public interface UserManageService {
      * @return 用户集合
      */
     List<SysUser> listAllUser();
+
+    /**
+     * 查询获取一个用户
+     * @param userId 用户Id
+     * @return 用户对象
+     */
+    SysUser getOneUser(Long userId);
 }

@@ -44,6 +44,14 @@
                 <input name="name" type="text" class="form-control" placeholder="请输入真实姓名"/>
             </div>
             <div class="form-group">
+                <label>邮箱</label>
+                <input name="email" type="email" class="form-control" placeholder="请输入邮箱"/>
+            </div>
+            <div class="form-group">
+                <label>手机号</label>
+                <input name="phone" type="text" class="form-control" placeholder="请输入手机号"/>
+            </div>
+            <div class="form-group">
                 <label>角色</label>
                 <div class="form-group">
                     <label class="checkbox-inline i-checks">
@@ -89,24 +97,12 @@
         return flag;
     }, "用户名已存在");
 
-    //自定义验证码验证
-    jQuery.validator.addMethod("checkCode", function (value, element) {
-        var flag = false;
-        $.ajax({
-            type: "post",
-            url: "/checkCode",
-            data: {code: value},
-            async: false,
-            success: function (data) {
-                if (data === false) {
-                    flag = false;
-                } else {
-                    flag = true;
-                }
-            }
-        });
-        return flag;
-    }, "验证码错误");
+    //自定义手机号码验证
+    jQuery.validator.addMethod("isMobile", function(value, element) {
+        var length = value.length;
+        var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+        return this.optional(element) || (length == 11 && mobile.test(value));
+    }, "请正确填写手机号码");
 
     $(function () {
         //iCheck使能
@@ -123,7 +119,10 @@
                     "required":true,
                     "checkLoginName":true
                 },
-                phone:"required",
+                phone:{
+                    "required" :true,
+                    "isMobile" : true
+                },
                 password:"required",
                 passwordAgain:{
                     required:true,
@@ -143,7 +142,10 @@
                     "required":"请输入登录名",
                     "checkLoginName":"登录名已存在"
                 },
-                phone:"情输入联系电话",
+                phone:{
+                    "required" :"请输入手机号",
+                    "isMobile" : "请输入正确手机号"
+                },
                 password:"请输入密码",
                 passwordAgain:{
                     required:"请确认密码",

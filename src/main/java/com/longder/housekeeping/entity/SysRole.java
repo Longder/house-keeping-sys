@@ -7,9 +7,9 @@ import org.springframework.security.core.GrantedAuthority;
  * 系统角色枚举
  */
 public enum SysRole implements GrantedAuthority {
-    ROLE_ADMIN("ROLE_ADMIN","管理员","系统管理员"),
-    ROLE_STAFF("ROLE_STAFF","家政服务人员","家政服务人员"),
-    ROLE_EMPLOYER("ROLE_EMPLOYER","雇主","雇主");
+    ROLE_ADMIN("ROLE_ADMIN","管理员","系统管理员",""),
+    ROLE_STAFF("ROLE_STAFF","家政服务人员","家政服务人员","label-primary"),
+    ROLE_EMPLOYER("ROLE_EMPLOYER","雇主","雇主","label-success");
     /**
      * 名称
      */
@@ -23,10 +23,16 @@ public enum SysRole implements GrantedAuthority {
      */
     private String describe;
 
-    SysRole(String name, String displayName, String describe) {
+    /**
+     * 页面标签
+     */
+    private String label;
+
+    SysRole(String name, String displayName, String describe,String label) {
         this.name = name;
         this.displayName = displayName;
         this.describe = describe;
+        this.label = label;
     }
 
     public String getName() {
@@ -51,6 +57,14 @@ public enum SysRole implements GrantedAuthority {
 
     public void setDescribe(String describe) {
         this.describe = describe;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     @Override

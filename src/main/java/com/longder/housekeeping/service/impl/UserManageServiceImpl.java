@@ -63,7 +63,19 @@ public class UserManageServiceImpl implements UserManageService {
     @Override
     public List<SysUser> listAllUser() {
         List<SysUser> sysUserList = sysUserRepository.findAll();
-
+        //封装展示用的角色
+        sysUserList.forEach(SysUser::fillRole);
         return sysUserList;
+    }
+
+    /**
+     * 查询获取一个用户
+     *
+     * @param userId 用户Id
+     * @return 用户对象
+     */
+    @Override
+    public SysUser getOneUser(Long userId) {
+        return sysUserRepository.findById(userId).orElseThrow(RuntimeException::new);
     }
 }

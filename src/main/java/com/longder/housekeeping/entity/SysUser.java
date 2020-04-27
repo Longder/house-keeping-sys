@@ -38,6 +38,18 @@ public class SysUser extends BaseIdEntity implements UserDetails {
     private String password;
 
     /**
+     * 邮箱
+     */
+    @Column(name = "email_")
+    private String email;
+
+    /**
+     * 联系电话
+     */
+    @Column(name = "phone_")
+    private String phone;
+
+    /**
      * 角色，不持久化，vo dto用
      */
     @Transient
@@ -48,6 +60,13 @@ public class SysUser extends BaseIdEntity implements UserDetails {
      */
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "sysUser",cascade = CascadeType.ALL)
     private List<SysUserRole> roles;
+
+    /**
+     * 封装角色，把roles中的元素放到role中，方便页面展示
+     */
+    public void fillRole(){
+        this.role = roles.get(0).getRole();
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

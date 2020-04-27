@@ -35,18 +35,12 @@
                 </li>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li>
-                        <a class="J_menuItem" href="${ctx}/supplier/list" data-index="0">
+                        <a class="J_menuItem" href="${ctx}/admin/user/list" data-index="0">
                             <i class="fa fa-user"></i>
                             <span class="nav-label">用户管理</span>
                         </a>
                     </li>
                 </sec:authorize>
-<%--                <li>--%>
-<%--                    <a class="J_menuItem" href="${ctx}/order/list" data-index="2">--%>
-<%--                        <i class="fa fa-file"></i>--%>
-<%--                        <span class="nav-label">订单列表</span>--%>
-<%--                    </a>--%>
-<%--                </li>--%>
             </ul>
         </div>
     </nav>
