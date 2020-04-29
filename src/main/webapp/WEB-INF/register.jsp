@@ -131,10 +131,6 @@
                 email:{
                     required:true,
                     email:true
-                },
-                validCode:{
-                    required:true,
-                    checkCode:true
                 }
             },messages:{
                 name:"请输入真实姓名",
@@ -154,10 +150,6 @@
                 email:{
                     required:"请输入邮箱",
                     email:"邮箱格式不正确"
-                },
-                validCode:{
-                    required:"请输入验证码",
-                    checkCode:"验证码输入有误"
                 }
             },
             onfocusout:false

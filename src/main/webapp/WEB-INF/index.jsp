@@ -41,6 +41,28 @@
                         </a>
                     </li>
                 </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_STAFF')">
+                    <li>
+                        <a class="J_menuItem" href="${ctx}/admin/serverInfo/listForStaff" data-index="0">
+                            <i class="fa fa-server"></i>
+                            <span class="nav-label">我的服务信息</span>
+                        </a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_EMPLOYER')">
+                    <li>
+                        <a class="J_menuItem" href="${ctx}/admin/serverInfo/listForEmployer" data-index="0">
+                            <i class="fa fa-clock-o"></i>
+                            <span class="nav-label">预约家政服务</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="${ctx}/admin/appointment/listMyAppointment" data-index="0">
+                            <i class="fa fa-money"></i>
+                            <span class="nav-label">我的预约</span>
+                        </a>
+                    </li>
+                </sec:authorize>
             </ul>
         </div>
     </nav>

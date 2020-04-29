@@ -51,6 +51,8 @@ public class UserManageController {
      */
     @PostMapping("/edit")
     public String edit(SysUser sysUser){
+        log.debug("编辑用户");
+        userManageService.saveOneUser(sysUser,null);
         return "redirect:/admin/user/list";
     }
 

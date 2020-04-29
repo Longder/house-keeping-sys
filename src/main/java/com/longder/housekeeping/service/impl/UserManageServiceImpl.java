@@ -40,6 +40,11 @@ public class UserManageServiceImpl implements UserManageService {
             SysUserRole userRole = new SysUserRole(sysUser,role);
             //存角色
             sysUserRoleRepository.save(userRole);
+        }else{
+            //修改，只修改email和手机号
+            SysUser dbUser = sysUserRepository.findById(sysUser.getId()).orElseThrow(RuntimeException::new);
+            dbUser.setEmail(sysUser.getEmail());
+            dbUser.setPhone(sysUser.getPhone());
         }
     }
 

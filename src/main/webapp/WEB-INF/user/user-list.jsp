@@ -74,7 +74,7 @@
         </div>
     </div>
 </div>
-<div class="modal inmodal fade" id="userModal" tabindex="-1" role="dialog" aria-hidden="true"></
+<div class="modal inmodal fade" id="userModal" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <jsp:include page="${ctx}/WEB-INF/import/script.jsp"/>
 </body>
 </html>
