@@ -64,6 +64,11 @@
                                 <a href="${ctx}/admin/appointment/generate?serverInfoId=${serverInfo.id}"
                                    onclick="return confirm('确定预约此家政服务吗？')"
                                    class="btn btn-sm btn-success">预约服务</a>
+                                <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+                                        data-target="#serverInfoModal"
+                                        onclick="openModal('${ctx}/admin/comment/showComment?serverInfoId=${serverInfo.id}','serverInfoModal')">
+                                    查看评论
+                                </button>
                             </td>
                         </tr>
                     </c:forEach>

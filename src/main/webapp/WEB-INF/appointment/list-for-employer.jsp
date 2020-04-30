@@ -61,7 +61,7 @@
                             <c:if test="${!appointment.commented&&appointment.serverState.name=='COMPLETE'}">
                                 <button type="button" class="btn btn-sm btn-success" data-toggle="modal"
                                         data-target="#commentModal"
-                                        onclick="openModal('${ctx}/admin/comment/toAdd?userId=${user.id}','commentModal')">
+                                        onclick="openModal('${ctx}/admin/comment/toAdd?appointmentId=${appointment.id}','commentModal')">
                                     填写服务评价
                                 </button>
                             </c:if>

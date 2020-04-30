@@ -66,7 +66,11 @@
                                 </c:choose>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-primary">查看评论</button>
+                                <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+                                        data-target="#serverInfoModal"
+                                        onclick="openModal('${ctx}/admin/comment/showComment?serverInfoId=${serverInfo.id}','serverInfoModal')">
+                                    查看评论
+                                </button>
                             </td>
                         </tr>
                     </c:forEach>

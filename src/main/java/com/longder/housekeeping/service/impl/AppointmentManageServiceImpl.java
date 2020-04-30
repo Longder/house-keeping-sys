@@ -79,4 +79,15 @@ public class AppointmentManageServiceImpl implements AppointmentManageService {
         serverInfoRepository.save(serverInfo);
         appointmentRepository.save(appointment);
     }
+
+    /**
+     * 获取一个预约
+     *
+     * @param appointmentId
+     * @return
+     */
+    @Override
+    public Appointment getOneAppointment(Long appointmentId) {
+        return appointmentRepository.findById(appointmentId).orElseThrow(RuntimeException::new);
+    }
 }

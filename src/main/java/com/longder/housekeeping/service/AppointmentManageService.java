@@ -26,4 +26,11 @@ public interface AppointmentManageService {
      * @param appointmentId
      */
     void completeAppointment(Long appointmentId);
+
+    /**
+     * 获取一个预约
+     * @param appointmentId
+     * @return
+     */
+    Appointment getOneAppointment(Long appointmentId);
 }

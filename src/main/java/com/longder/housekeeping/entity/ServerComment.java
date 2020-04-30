@@ -40,4 +40,10 @@ public class ServerComment extends BaseIdEntity{
      */
     @Column(name = "comment_date_")
     private LocalDate commentDate;
+
+    /**
+     * 预约id，传递用，不持久化
+     */
+    @Transient
+    private Long appointmentId;
 }

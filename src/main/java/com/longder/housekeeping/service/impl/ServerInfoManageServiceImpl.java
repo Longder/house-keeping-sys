@@ -59,4 +59,15 @@ public class ServerInfoManageServiceImpl implements ServerInfoManageService {
     public List<ServerInfo> listServerInfoNotAppoint() {
         return serverInfoRepository.listNotAppoint();
     }
+
+    /**
+     * 获取一个服务信息
+     *
+     * @param serverInfoId
+     * @return
+     */
+    @Override
+    public ServerInfo getOneServerInfo(Long serverInfoId) {
+        return serverInfoRepository.findById(serverInfoId).orElseThrow(RuntimeException::new);
+    }
 }

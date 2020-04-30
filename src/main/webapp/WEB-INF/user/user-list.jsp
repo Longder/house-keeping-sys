@@ -32,44 +32,42 @@
                     <div class="col-sm-9">
                     </div>
                 </div>
-                <div class="table table-bordered table-hover">
-                    <table class="table table-striped table-bordered">
-                        <thead>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>登录名</th>
+                        <th>姓名</th>
+                        <th>角色</th>
+                        <th>手机号</th>
+                        <th>邮箱</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${userList}" var="user" varStatus="status">
                         <tr>
-                            <th>序号</th>
-                            <th>登录名</th>
-                            <th>姓名</th>
-                            <th>角色</th>
-                            <th>手机号</th>
-                            <th>邮箱</th>
-                            <th>操作</th>
+                            <td>${status.index+1}</td>
+                            <td>${user.loginName}</td>
+                            <td>${user.name}</td>
+                            <td>
+                                <span class="label ${user.role.label}">${user.role.displayName}</span>
+                            </td>
+                            <td>${user.phone}</td>
+                            <td>${user.email}</td>
+                            <td>
+                                <c:if test="${user.role.name!='ROLE_ADMIN'}">
+                                    <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+                                            data-target="#userModal"
+                                            onclick="openModal('${ctx}/admin/user/toEdit?userId=${user.id}','userModal')">
+                                        修改
+                                    </button>
+                                </c:if>
+                            </td>
                         </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${userList}" var="user" varStatus="status">
-                                <tr>
-                                    <td>${status.index+1}</td>
-                                    <td>${user.loginName}</td>
-                                    <td>${user.name}</td>
-                                    <td>
-                                        <span class="label ${user.role.label}">${user.role.displayName}</span>
-                                    </td>
-                                    <td>${user.phone}</td>
-                                    <td>${user.email}</td>
-                                    <td>
-                                        <c:if test="${user.role.name!='ROLE_ADMIN'}">
-                                            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
-                                                    data-target="#userModal"
-                                                    onclick="openModal('${ctx}/admin/user/toEdit?userId=${user.id}','userModal')">
-                                                修改
-                                            </button>
-                                        </c:if>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

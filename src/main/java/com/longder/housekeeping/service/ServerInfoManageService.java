@@ -26,4 +26,11 @@ public interface ServerInfoManageService {
      * @return
      */
     List<ServerInfo> listServerInfoNotAppoint();
+
+    /**
+     * 获取一个服务信息
+     * @param serverInfoId
+     * @return
+     */
+    ServerInfo getOneServerInfo(Long serverInfoId);
 }

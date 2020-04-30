@@ -16,12 +16,14 @@
                     <div class="col-sm-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
-                                <form id="add-server-info-form" method="post" class="form-horizontal"
-                                      action="${ctx}/admin/serverInfo/add">
+                                <form id="add-comment-form" method="post" class="form-horizontal"
+                                      action="${ctx}/admin/comment/add">
+                                    <input type="hidden" name="appointmentId" value="${appointment.id}"/>
+                                    <input type="hidden" name="serverInfo.id" value="${appointment.serverInfo.id}"/>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">服务人员姓名<span class="text-danger">*</span></label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" readonly value="小表妹"/>
+                                            <input type="text" class="form-control" readonly value="${appointment.serverInfo.staff.name}"/>
                                         </div>
                                     </div>
                                     <div class="hr-line-dashed"></div>
@@ -50,20 +52,14 @@
 <script>
     $(function(){
         //表单验证
-        $("#add-server-info-form").validate({
+        $("#add-comment-form").validate({
             rules:{
-                title:{
-                    required :true
-                },
                 content:{
                     required:true
                 }
             },messages:{
-                title:{
-                    required :"请输入服务标题"
-                },
                 content:{
-                    required:"请输入服务内容"
+                    required:"请输入评价内容"
                 }
             },
             onfocusout:false
